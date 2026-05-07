@@ -12,7 +12,7 @@ Static routing involves manually configuring routes on a router. It is best suit
 ## Prerequisites
 - Basic understanding of IP Addressing
 - Basic understanding of static route
-- Cisco Packet Tracer installed|
+- Cisco Packet Tracer installed
 
 ## Key Commands
 
