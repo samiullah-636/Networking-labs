@@ -5,8 +5,7 @@
 ## Each Lab Contains
 
 - Topology diagram
-- Device configurations
-- Verification commands with output
+- README.md [devices conf , verifications]
 - Packet Tracer file (.pkt)
 
 ---
