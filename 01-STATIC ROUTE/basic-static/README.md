@@ -1,7 +1,7 @@
 # Basic Static Routing Lab
 
 ## Overview
-In this lab, we configure static routes on five routers (R-A, R-B, R-C, R-D, R-E) to enable end-to-end connectivity between PC0/PC1 and PC2/PC3.
+In this lab, we configure static routes on five routers (R1, R2, R3, R4, R5) to enable end-to-end connectivity between PC0/PC1 and PC2/PC3.
 
 ## Objectives
 - [ ] Configure IP addresses on all interfaces
@@ -15,16 +15,16 @@ In this lab, we configure static routes on five routers (R-A, R-B, R-C, R-D, R-E
 
 | Device | Interface | IP Address    | Subnet Mask     | Clock Rate |
 |--------|-----------|---------------|-----------------|------------|
-| R-A    | Se0/3/0   | 70.70.70.1    | 255.255.255.252 | -          |
-| R-B    | Se0/3/1   | 70.70.70.2      | 255.255.255.252 | 64000      |
-| R-B     | Se0/3/0     | 50.50.50.2      | 255.255.255.252 | -          |
-| R-B     | Se0/2/0     | 140.140.140.2      | 255.255.255.252 | 64000      |
-| R-C     | Se0/3/0     | 50.50.50.1      | 255.255.255.252 | 64000          |
-| R-C     | Fa0/0     | 172.16.5.1   | 255.255.255.248   | -          |
-| R-D     | Se0/3/0     | 140.140.140.1   | 255.255.255.252   | -          |
-| R-D     | Se0/3/1     | 200.100.100.1   | 255.255.255.252   | 64000          |
-| R-E     | Se0/3/0     | 200.100.100.2   | 255.255.255.252   | -          |
-| R-E     | Fa0/0     | 192.168.1.1   | 255.255.255.248   | -          |
+| R1    | Se0/3/0   | 70.70.70.1    | 255.255.255.252 | -          |
+| R2    | Se0/3/1   | 70.70.70.2      | 255.255.255.252 | 64000      |
+| R2     | Se0/3/0     | 50.50.50.2      | 255.255.255.252 | -          |
+| R2     | Se0/2/0     | 140.140.140.2      | 255.255.255.252 | 64000      |
+| R3     | Se0/3/0     | 50.50.50.1      | 255.255.255.252 | 64000          |
+| R3     | Fa0/0     | 172.16.5.1   | 255.255.255.248   | -          |
+| R4     | Se0/3/0     | 140.140.140.1   | 255.255.255.252   | -          |
+| R4     | Se0/3/1     | 200.100.100.1   | 255.255.255.252   | 64000          |
+| R5     | Se0/3/0     | 200.100.100.2   | 255.255.255.252   | -          |
+| R5     | Fa0/0     | 192.168.1.1   | 255.255.255.248   | -          |
 
 ## Configuration Steps
 
@@ -32,7 +32,7 @@ In this lab, we configure static routes on five routers (R-A, R-B, R-C, R-D, R-E
 Assign IP addresses to all interfaces and bring them up (`no shutdown`).
 
 ### Step 2: Configure Static Routes
-**On Router-A:**
+**On Router-01:**
 ```bash
 ROUTER-A(config)#ip route 50.50.50.0 255.255.255.252 70.70.70.2
 ROUTER-A(config)#ip route 140.140.140.0 255.255.255.252 70.70.70.2
@@ -41,14 +41,14 @@ ROUTER-A(config)#ip route 172.16.5.0 255.255.255.248 70.70.70.2
 ROUTER-A(config)#ip route 192.168.1.0 255.255.255.248 70.70.70.2
 ```
 
-**On Router-B:**
+**On Router-02:**
 ```bash
 ip route 172.16.5.0 255.255.255.248 50.50.50.1 
 ip route 200.100.100.0 255.255.255.252 140.140.140.1 
 ip route 192.168.1.0 255.255.255.248 140.140.140.1 
 ```
 
-**On Router-C:**
+**On Router-03:**
 ```bash
 ip route 70.70.70.0 255.255.255.252 50.50.50.2 
 ip route 140.140.140.0 255.255.255.252 50.50.50.2 
@@ -56,7 +56,7 @@ ip route 200.100.100.0 255.255.255.252 50.50.50.2
 ip route 192.168.1.0 255.255.255.248 50.50.50.2  
 ```
 
-**On Router-D:**
+**On Router-04:**
 ```bash
 ip route 192.168.1.0 255.255.255.248 200.100.100.2 
 ip route 70.70.70.0 255.255.255.252 140.140.140.2 
@@ -64,7 +64,7 @@ ip route 50.50.50.0 255.255.255.252 140.140.140.2
 ip route 172.16.5.0 255.255.255.248 140.140.140.2
 ```
 
-**On Router-E:**
+**On Router-05:**
 ```bash
 ip route 140.140.140.0 255.255.255.252 200.100.100.1 
 ip route 70.70.70.0 255.255.255.252 200.100.100.1 
@@ -75,7 +75,7 @@ ip route 172.16.5.0 255.255.255.252 200.100.100.1
 ### Step 3: Verification
 **Checking Routing Table**
 ```bash
-ROUTER-A#show ip route
+ROUTER-01#show ip route
 
  50.0.0.0/30 is subnetted, 1 subnets
 S       50.50.50.0/30 [1/0] via 70.70.70.2
@@ -95,7 +95,7 @@ Look for S (Static) entries in the table.
 
 **Test Connectivity**
 ```bash
-ROUTER-A>ping 192.168.1.2
+ROUTER-01>ping 192.168.1.2
 
 Type escape sequence to abort.
 Sending 5, 100-byte ICMP Echos to 192.168.1.2, timeout is 2 seconds:
