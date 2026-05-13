@@ -5,9 +5,12 @@ Static routing involves manually configuring routes on a router. It is best suit
 
 ## Labs
 
-| Lab | Description |
-|-----|-------------|
-| [Basic Static](./basic-static/) | Configured static routes between 5 routers
+| Lab Name | Description |
+|----------|-------------|
+| [Basic Static Routing](./basic-static/) | Configuring static routes between routers |
+| [Recursive Static Route](./recursive-static/) | Using next-hop IP for routing |
+| [Floating Static Route](./floating-static/) | Backup routes with higher AD |
+| [Summary Static Route](./summary-static/)  | Route summarization for optimization |
 
 ## Prerequisites
 - Basic understanding of IP Addressing
