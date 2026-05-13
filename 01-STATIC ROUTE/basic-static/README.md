@@ -34,11 +34,11 @@ Assign IP addresses to all interfaces and bring them up (`no shutdown`).
 ### Step 2: Configure Static Routes
 **On Router-01:**
 ```bash
-ROUTER-A(config)#ip route 50.50.50.0 255.255.255.252 70.70.70.2
-ROUTER-A(config)#ip route 140.140.140.0 255.255.255.252 70.70.70.2
-ROUTER-A(config)#ip route 200.100.100.0 255.255.255.252 70.70.70.2
-ROUTER-A(config)#ip route 172.16.5.0 255.255.255.248 70.70.70.2
-ROUTER-A(config)#ip route 192.168.1.0 255.255.255.248 70.70.70.2
+ROUTER-01(config)#ip route 50.50.50.0 255.255.255.252 70.70.70.2
+ROUTER-01(config)#ip route 140.140.140.0 255.255.255.252 70.70.70.2
+ROUTER-01(config)#ip route 200.100.100.0 255.255.255.252 70.70.70.2
+ROUTER-01(config)#ip route 172.16.5.0 255.255.255.248 70.70.70.2
+ROUTER-01(config)#ip route 192.168.1.0 255.255.255.248 70.70.70.2
 ```
 
 **On Router-02:**
